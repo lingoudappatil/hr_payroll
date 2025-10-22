@@ -8,6 +8,7 @@ import attendanceRoutes from './routes/attendanceRoutes.js';
 import payrollRoutes from './routes/payrollRoutes.js';
 import leaveRoutes from './routes/leaveRoutes.js';
 
+
 dotenv.config();
 connectDB();
 
