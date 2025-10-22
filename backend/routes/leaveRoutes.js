@@ -1,9 +1,15 @@
-import express from 'express';
+import express from "express";
+import 
+{
+  applyLeave,
+  getAllLeaves,
+  updateLeaveStatus,
+} from "../controllers/leaveController.js";
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.status(501).json({ message: 'Leave routes not implemented yet' });
-});
+router.post("/apply", applyLeave);
+router.get("/", getAllLeaves);
+router.put("/update/:id", updateLeaveStatus);
 
 export default router;
