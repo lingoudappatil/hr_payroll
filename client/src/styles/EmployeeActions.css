@@ -1,0 +1,53 @@
+.action-btn {
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+}
+
+.action-btn.edit {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.action-btn.edit:hover {
+  background-color: #357abd;
+}
+
+.action-btn.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.action-btn.delete:hover {
+  background-color: #c0392b;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+select.form-control {
+  height: 40px;
+  background-color: white;
+}
+
+.employee-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}

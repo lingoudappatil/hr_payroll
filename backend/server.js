@@ -8,11 +8,11 @@ import attendanceRoutes from './routes/attendanceRoutes.js';
 import payrollRoutes from './routes/payrollRoutes.js';
 import leaveRoutes from './routes/leaveRoutes.js';
 
-
 dotenv.config();
-connectDB();
-
 const app = express();
+
+// ✅ CONNECT TO MONGODB BEFORE ANYTHING ELSE
+connectDB(); // <--- This line is required
 
 // Configure CORS
 app.use(cors({
@@ -25,10 +25,6 @@ app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('Content-Security-Policy', "default-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' http://localhost:3000 http://localhost:5000; img-src 'self' data: blob:; font-src 'self' data:;");
-  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL || 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
 
