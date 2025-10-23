@@ -9,6 +9,7 @@ import Payroll from "./pages/Payroll";
 import Employee from "./pages/Employee";
 import Sidebar from "./components/Sidebar";
 import "./global.css";
+import EmployeeView from "./pages/components/ViewEmployees";
 
 function App() {
   // Don't show sidebar on login and register pages

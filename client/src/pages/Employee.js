@@ -75,8 +75,9 @@ export default function Employee() {
 
   return (
     <div style={{ marginLeft: "270px", padding: "20px" }}>
-      <h2>Employee Management</h2>
-
+      <div className="header">
+        <h2>Employee Management</h2>
+      </div>
       <div className="card">
         <h3>{editId ? "Edit Employee" : "Add New Employee"}</h3>
 

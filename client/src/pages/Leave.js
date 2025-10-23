@@ -29,7 +29,9 @@ export default function Leave() {
 
   return (
     <div style={{ marginLeft: "270px", padding: "20px" }}>
-      <h2>Leave Management</h2>
+      <div className="header">
+        <h2>Leave Management</h2>
+      </div>
 
       <div className="card">
         <h3>Apply for Leave</h3>
