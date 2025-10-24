@@ -1,6 +1,6 @@
 .payroll-container {
   padding: 20px;
-  margin-left: 250px;
+  margin-left: 10px;
   background-color: #f8f9fa;
   min-height: 100vh;
 }
@@ -24,6 +24,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
+  margin-left: 120px;
+  margin-top: 20px;
 }
 
 .generate-section h3 {
@@ -69,6 +71,7 @@
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 120px;
 }
 
 .history-section h3 {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/leaves.css";
 
 export default function Leave() {
   const [leaves, setLeaves] = useState([
@@ -28,7 +29,7 @@ export default function Leave() {
   };
 
   return (
-    <div style={{ marginLeft: "270px", padding: "20px" }}>
+    <div className="leave-container">
       <div className="header">
         <h2>Leave Management</h2>
       </div>

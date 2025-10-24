@@ -9,27 +9,37 @@ const EmployeeView = () => {
     fetchEmployees();
   }, []);
 
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const fetchEmployees = async () => {
     try {
-      console.log('Fetching employees...');
+      setLoading(true);
+      setError(null);
+      console.log('Fetching employees from:', "http://localhost:5000/api/employees");
       const response = await axios.get("http://localhost:5000/api/employees");
-      console.log('Employees data:', response.data);
+      console.log('Response received:', response);
+      
       if (Array.isArray(response.data)) {
+        console.log('Number of employees found:', response.data.length);
         setEmployees(response.data);
-        console.log('Number of employees:', response.data.length);
         if (response.data.length > 0) {
-          console.log('Sample employee data:', response.data[0]);
+          console.log('First employee:', response.data[0]);
         }
       } else {
-        console.error('Expected array but got:', typeof response.data);
+        console.error('Invalid response format:', response.data);
+        setError('Invalid data format received from server');
         setEmployees([]);
       }
     } catch (error) {
-      console.error("Error fetching employees:", error);
+      console.error("Failed to fetch employees:", error);
+      setError(error.message || 'Failed to fetch employees');
       if (error.response) {
-        console.error('Error response:', error.response.data);
+        console.error('Server error:', error.response.data);
       }
       setEmployees([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,9 +68,13 @@ const EmployeeView = () => {
       </div>
       <div className="card">
         <h3>Employee List</h3>
-
-        {employees.length === 0 ? (
-          <p>No employees found.</p>
+        
+        {loading ? (
+          <p>Loading employees...</p>
+        ) : error ? (
+          <p style={{ color: 'red' }}>Error: {error}</p>
+        ) : employees.length === 0 ? (
+          <p>No employees found. Please add some employees first.</p>
         ) : (
           <table>
             <thead>

@@ -74,7 +74,7 @@ export default function Employee() {
   };
 
   return (
-    <div style={{ marginLeft: "270px", padding: "20px" }}>
+    <div style={{ marginLeft: "120px", padding: "10px", marginTop: "20px" }}>
       <div className="header">
         <h2>Employee Management</h2>
       </div>
