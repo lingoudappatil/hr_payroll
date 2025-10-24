@@ -3,19 +3,26 @@ import Leave from "../models/Leave.js";
 // Apply for leave
 export const applyLeave = async (req, res) => {
   try {
-    const { userId, startDate, endDate, reason } = req.body;
+    const { employeeId, leaveType, startDate, endDate, reason } = req.body;
+    
+    if (!employeeId || !leaveType || !startDate || !endDate || !reason) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     const leave = new Leave({
-      userId,
+      employeeId,
+      leaveType,
       startDate,
       endDate,
       reason,
+      status: "Pending"
     });
 
     await leave.save();
     res.status(201).json({ message: "Leave request submitted successfully", leave });
   } catch (error) {
-    res.status(500).json({ message: "Error applying for leave", error });
+    console.error('Error in applyLeave:', error);
+    res.status(500).json({ message: "Error applying for leave", error: error.message });
   }
 };
 
