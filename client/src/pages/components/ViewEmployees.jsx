@@ -11,10 +11,24 @@ const EmployeeView = () => {
 
   const fetchEmployees = async () => {
     try {
+      console.log('Fetching employees...');
       const response = await axios.get("http://localhost:5000/api/employees");
-      setEmployees(response.data);
+      console.log('Employees data:', response.data);
+      if (Array.isArray(response.data)) {
+        setEmployees(response.data);
+        console.log('Number of employees:', response.data.length);
+        if (response.data.length > 0) {
+          console.log('Sample employee data:', response.data[0]);
+        }
+      } else {
+        console.error('Expected array but got:', typeof response.data);
+        setEmployees([]);
+      }
     } catch (error) {
       console.error("Error fetching employees:", error);
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+      }
       setEmployees([]);
     }
   };
@@ -39,6 +53,9 @@ const EmployeeView = () => {
 
   return (
     <div className="main-content">
+      <div className="header">
+        <h2>Employee Management</h2>
+      </div>
       <div className="card">
         <h3>Employee List</h3>
 
@@ -52,26 +69,21 @@ const EmployeeView = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Department</th>
-                <th style={{ textAlign: "center" }}>Actions</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {employees.map((emp) => (
-                <tr key={emp.id}>
-                  <td>{emp.id}</td>
+                <tr key={emp._id}>
+                  <td>{emp._id}</td>
                   <td>{emp.name}</td>
                   <td>{emp.email}</td>
                   <td>{emp.department}</td>
-                  <td style={{ textAlign: "center" }}>
+                  <td>
+                    <button onClick={() => handleEdit(emp._id)}>Edit</button>
                     <button
-                      onClick={() => handleEdit(emp.id)}
-                      style={{ backgroundColor: "#3498db", marginRight: "10px" }}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(emp.id)}
-                      style={{ backgroundColor: "crimson" }}
+                      onClick={() => handleDelete(emp._id)}
+                      style={{ marginLeft: "10px", backgroundColor: "crimson" }}
                     >
                       Delete
                     </button>
@@ -82,6 +94,7 @@ const EmployeeView = () => {
           </table>
         )}
       </div>
+  
     </div>
   );
 };

@@ -36,8 +36,8 @@ export default function Sidebar() {
                 Add Employee
               </Link>
               <Link
-                to="/Viewemployees"
-                className={`nav-link sub-link ${isActive("/Viewemployees") ? "active" : ""}`}
+                to="/view-employees"
+                className={`nav-link sub-link ${isActive("/view-employees") ? "active" : ""}`}
               >
                 View Employees
               </Link>

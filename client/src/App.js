@@ -27,6 +27,7 @@ function App() {
           <Route path="/leave" element={<Leave />} />
           <Route path="/payroll" element={<Payroll />} />
           <Route path="/employee" element={<Employee />} />
+          <Route path="/view-employees" element={<EmployeeView />} />
         </Routes>
       </div>
     </div>
