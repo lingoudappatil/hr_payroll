@@ -201,43 +201,6 @@ textarea:focus {
   background-color: #219a52;
 }
 
-/* -------------------- Tables -------------------- */
-.table-container {
-  overflow-x: auto;
-  border-radius: 8px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-table th {
-  background-color: #3498db;
-  color: white;
-  font-weight: 600;
-  padding: 16px 20px;
-  text-align: left;
-  font-size: 14px;
-}
-
-table td {
-  padding: 14px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  color: #555;
-}
-
-table tr:last-child td {
-  border-bottom: none;
-}
-
-table tr:hover {
-  background-color: #f8f9fa;
-}
-
 /* -------------------- Status Badges -------------------- */
 .status-badge {
   padding: 6px 12px;
