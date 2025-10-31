@@ -108,44 +108,6 @@ export default function Employee() {
         </button>
       </div>
 
-      <div className="card">
-        <h3>Employee List</h3>
-
-        {employees.length === 0 ? (
-          <p>No employees found.</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employees.map((emp) => (
-                <tr key={emp.id}>
-                  <td>{emp.id}</td>
-                  <td>{emp.name}</td>
-                  <td>{emp.email}</td>
-                  <td>{emp.department}</td>
-                  <td>
-                    <button onClick={() => handleEdit(emp.id)}>Edit</button>
-                    <button
-                      onClick={() => handleDelete(emp.id)}
-                      style={{ marginLeft: "10px", backgroundColor: "crimson" }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
-    </div>
+</div>
   );
 }

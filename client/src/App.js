@@ -25,6 +25,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/leave" element={<Leave />} />
+          
           <Route path="/payroll" element={<Payroll />} />
           <Route path="/employee" element={<Employee />} />
           <Route path="/view-employees" element={<EmployeeView />} />
