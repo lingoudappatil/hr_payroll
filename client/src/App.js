@@ -8,8 +8,8 @@ import Leave from "./pages/Leave";
 import Payroll from "./pages/Payroll";
 import Employee from "./pages/Employee";
 import Sidebar from "./components/Sidebar";
+ import ViewEmployees from "./pages/components/ViewEmployees";
 import "./global.css";
-import EmployeeView from "./pages/components/ViewEmployees";
 
 function App() {
   // Don't show sidebar on login and register pages
@@ -28,7 +28,7 @@ function App() {
           
           <Route path="/payroll" element={<Payroll />} />
           <Route path="/employee" element={<Employee />} />
-          <Route path="/view-employees" element={<EmployeeView />} />
+          <Route path="/view-employees" element={<ViewEmployees />} />
         </Routes>
       </div>
     </div>
