@@ -66,48 +66,81 @@ const EmployeeView = () => {
       <div className="header">
         <h2>Employee Management</h2>
       </div>
-      <div className="card">
-        <h3>Employee List</h3>
-        
-        {loading ? (
-          <p>Loading employees...</p>
-        ) : error ? (
-          <p style={{ color: 'red' }}>Error: {error}</p>
-        ) : employees.length === 0 ? (
-          <p>No employees found. Please add some employees first.</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employees.map((emp) => (
-                <tr key={emp._id}>
-                  <td>{emp._id}</td>
-                  <td>{emp.name}</td>
-                  <td>{emp.email}</td>
-                  <td>{emp.department}</td>
-                  <td>
-                    <button onClick={() => handleEdit(emp._id)}>Edit</button>
-                    <button
-                      onClick={() => handleDelete(emp._id)}
-                      style={{ marginLeft: "10px", backgroundColor: "crimson" }}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
+      <div className="employees-list-card">
+          <div className="card-header">
+            <h3>Employee List</h3>
+            <button 
+              className="btn-refresh" 
+              onClick={fetchEmployees}
+              disabled={loading}
+            >
+              {loading ? 'Refreshing...' : 'Refresh'}
+            </button>
+          </div>
+
+          {loading ? (
+            <div className="loading">Loading employees...</div>
+          ) : employees.length === 0 ? (
+            <div className="no-data">No employees found</div>
+          ) : (
+            <div className="table-container">
+              <table className="employees-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Join Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {employees.map(employee => (
+                    <tr key={employee._id}>
+                      <td className="employee-name">
+                        <div className="avatar">
+                          {employee.name.charAt(0).toUpperCase()}
+                        </div>
+                        {employee.name}
+                      </td>
+                      <td>{employee.email}</td>
+                      <td>
+                        <span className="department-badge">
+                          {employee.department}
+                        </span>
+                      </td>
+                      <td>
+                        {employee.joinDate ? new Date(employee.joinDate).toLocaleDateString() : 'N/A'}
+                      </td>
+                      <td>
+                        <span className={`status-badge ${employee.status.toLowerCase()}`}>
+                          {employee.status}
+                        </span>
+                      </td>
+                      <td>
+                        <div className="action-buttons">
+                          <button 
+                            className="btn-edit"
+                            onClick={() => handleEdit(employee)}
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            className="btn-delete"
+                            onClick={() => handleDelete(employee._id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
   
     </div>
   );
