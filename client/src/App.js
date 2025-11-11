@@ -6,9 +6,9 @@ import Dashboard from "./pages/Dashboard";
 import Attendance from "./pages/Attendance";
 import Leave from "./pages/Leave";
 import Payroll from "./pages/Payroll";
-import Employee from "./pages/Employee";
 import Sidebar from "./components/Sidebar";
- import ViewEmployees from "./pages/components/ViewEmployees";
+import AddEmployee from "./pages/components/AddEmployee";
+import ViewEmployees from "./pages/components/ViewEmployees";
 import "./global.css";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/leave" element={<Leave />} />
           
           <Route path="/payroll" element={<Payroll />} />
-          <Route path="/employee" element={<Employee />} />
+          <Route path="/employee" element={<AddEmployee />} />
           <Route path="/view-employees" element={<ViewEmployees />} />
         </Routes>
       </div>

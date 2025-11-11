@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import '../../styles/Employee.css'
 
 const EmployeeView = () => {
   const [employees, setEmployees] = useState([]);
@@ -80,6 +81,10 @@ const EmployeeView = () => {
 
           {loading ? (
             <div className="loading">Loading employees...</div>
+          ) : error ? (
+            <div className="error-message" style={{ color: 'red', padding: '10px', backgroundColor: '#ffe6e6', borderRadius: '4px' }}>
+              Error: {error}
+            </div>
           ) : employees.length === 0 ? (
             <div className="no-data">No employees found</div>
           ) : (
