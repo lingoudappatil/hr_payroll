@@ -29,7 +29,7 @@ export default function Login() {
 
   const closeModal = () => {
     setIsModalVisible(false);
-    navigate("/");
+    navigate("/login");
   };
 
   return (

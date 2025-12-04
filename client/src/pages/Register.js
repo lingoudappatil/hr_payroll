@@ -24,7 +24,7 @@ export default function Register() {
       await axios.post("http://localhost:5000/api/auth/register", formData);
       alert("Registered successfully!");
       setIsModalVisible(false);
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       alert("Error registering user");
     }
@@ -32,7 +32,7 @@ export default function Register() {
 
   const closeModal = () => {
     setIsModalVisible(false);
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -88,7 +88,7 @@ export default function Register() {
             <div className="text-center mt-4">
               Already have an account?{" "}
               <span 
-                onClick={() => navigate('/')} 
+                onClick={() => navigate('/login')} 
                 className="text-blue-600 hover:text-blue-800 cursor-pointer underline"
               >
                 Login here
